@@ -1,0 +1,24 @@
+{
+  "name": "always",
+  "version": "1.0.0",
+  "description": "Yet another promise framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/scotmcc/always.git"
+  },
+  "keywords": [
+    "promise",
+    "node",
+    "js"
+  ],
+  "author": "Scot McConnaughay <scotmcc@gmail.com> (https://github.com/scotmcc)",
+  "license": "GPL",
+  "bugs": {
+    "url": "https://github.com/scotmcc/always/issues"
+  },
+  "homepage": "https://github.com/scotmcc/always"
+}
