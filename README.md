@@ -14,27 +14,29 @@ Simple Node JS Promise pattern modeled loosely after jQuery. While not exactly a
 
   console.log('always', always, 'Promise', Promise);
 
+  ```javascript
   function My_Read_File_Function(f) {
-  	var p = new always.Promise();
-  	fs.readFile(f, function (err, data) {
-		  if (err) {
-			  p.failed(err);
-		  } else {
-			  p.resolved(data);
-		  }
-	  });
-  	return p;
+    var p = new always.Promise();
+    fs.readFile(f, function (err, data) {
+      if (err) {
+        p.failed(err);
+      } else {
+        p.resolved(data);
+      }
+    });
+    return p;
   }
 
   function My_Need_To_Know_Function () {
-  	My_Read_File_Function('/my/file.js').done(function (result) {
-  		console.log('File read success!', result);
-  	}).fail(function (err) {
-  		console.log('File read failure', err);
-  	}).always(function (resp) {
-  		console.log('This always happens...', resp);
-  	});
+    My_Read_File_Function('/my/file.js').done(function (result) {
+      console.log('File read success!', result);
+    }).fail(function (err) {
+      console.log('File read failure', err);
+    }).always(function (resp) {
+      console.log('This always happens...', resp);
+    });
   }
+  ```
 
 ## Tests
 
