@@ -14,7 +14,7 @@ Simple Node JS Promise pattern modeled loosely after jQuery. While not exactly a
 
   console.log('always', always, 'Promise', Promise);
 
-  ```javascript
+  ```
   function My_Read_File_Function(f) {
     var p = new always.Promise();
     fs.readFile(f, function (err, data) {
