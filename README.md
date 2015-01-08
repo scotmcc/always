@@ -16,15 +16,13 @@ Simple Node JS Promise pattern modeled loosely after jQuery. While not exactly a
 
   function My_Read_File_Function(f) {
   	var p = new always.Promise();
-
   	fs.readFile(f, function (err, data) {
-		if (err) {
-			p.failed(err);
-		} else {
-			p.resolved(data);
-		}
-	});
-
+		  if (err) {
+			  p.failed(err);
+		  } else {
+			  p.resolved(data);
+		  }
+	  });
   	return p;
   }
 
