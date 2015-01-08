@@ -9,12 +9,12 @@ Simple Node JS Promise pattern modeled loosely after jQuery. While not exactly a
 
 ## Usage
 
+  ```
   var always = require('always'),
       Promise = new always.Promise();
 
   console.log('always', always, 'Promise', Promise);
-
-  ```
+  
   function My_Read_File_Function(f) {
     var p = new always.Promise();
     fs.readFile(f, function (err, data) {
