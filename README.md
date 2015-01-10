@@ -38,6 +38,30 @@ Simple Node JS Promise pattern modeled loosely after jQuery. While not exactly a
   }
   ```
 
+  Alternate
+
+  ```
+  var x = {
+    foo: 'bar'
+  };
+
+  always.Promise.call(x);
+
+  x.watch(function(message) {
+    console.log(message);
+  });
+
+  x.progress('0%');
+  x.progress('25%');
+  x.progress('50%');
+  x.progress('75%');
+  x.progress('100%');
+
+  x.watch(function(message) {
+    console.log(message);
+  });
+  ```
+
 ## Tests
 
   npm test

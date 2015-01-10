@@ -7,6 +7,7 @@ module.exports = (function() {
 		var success = [];
 		var failure = [];
 		var always = [];
+		var watchers = [];
 		var error, result;
 
 		this.done = function(fun) {
@@ -51,6 +52,20 @@ module.exports = (function() {
 			return this;
 		};
 
+		this.watch = function(fun) {
+			if (typeof fun !== 'function') {
+				throw new Error('Parameter must be a function.');
+			}
+			var i = watchers.indexOf(fun);
+			if (i === -1) {
+				watchers.push(fun);
+			}
+			if (complete) {
+				fun.call(null, successful ? result : error);
+			}
+			return this;
+		};
+
 		this.resolved = function(res) {
 			complete = true;
 			successful = true;
@@ -76,8 +91,37 @@ module.exports = (function() {
 			}
 		};
 
+		this.progress = function(mes) {
+			message = mes;
+			for (var i = 0; i < watchers.length; i++) {
+				watchers[i].call(null, message);
+			}
+		};
+
 		return this;
 
+	}
+
+	if (process.argv[1] === __filename && process.argv[2] === 'watch') {
+		var x = {
+			foo: 'bar'
+		};
+
+		Promise.call(x);
+
+		x.watch(function(message) {
+			console.log(message);
+		});
+
+		x.progress('0%');
+		x.progress('25%');
+		x.progress('50%');
+		x.progress('75%');
+		x.progress('100%');
+
+		x.watch(function(message) {
+			console.log(message);
+		});
 	}
 
 	if (process.argv[1] === __filename && process.argv[2] === 'test') {
