@@ -66,6 +66,11 @@ Simple Node JS Promise pattern modeled loosely after jQuery. While not exactly a
 
   npm test
 
+## Command Line Tests
+
+  node index.js test
+  node index.js watch
+
 ## Release History
 
 * 0.1.0 Initial release
