@@ -69,6 +69,7 @@ Simple Node JS Promise pattern modeled loosely after jQuery. While not exactly a
 ## Command Line Tests
 
   node index.js test
+  
   node index.js watch
 
 ## Release History
